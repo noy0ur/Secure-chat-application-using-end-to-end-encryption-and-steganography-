@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <h2>🔐 Secure Chat</h2>
+
+        <a href="/logout" class="logout-btn">Logout</a>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <h2>👥 Users</h2>
+
+        <div class="user-list">
+
+            {% for user in users %}
+                <a href="/chat/{{user.id}}" class="user-card">
+                    <div class="avatar">👤</div>
+                    <div class="username">{{user.username}}</div>
+                </a>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

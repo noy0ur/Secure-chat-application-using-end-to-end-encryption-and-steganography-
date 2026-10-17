@@ -1,0 +1,342 @@
+/* ================= GLOBAL ================= */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Smooth */
+* {
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+/* ================= LOGIN & REGISTER ================= */
+.login-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 40px;
+    width: 360px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+/* Title */
+.login-card h1 {
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    color: gray;
+    margin-bottom: 25px;
+}
+
+/* Input */
+.field {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.field label {
+    font-size: 13px;
+    color: #555;
+}
+
+.field input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.field input:focus {
+    border-color: #2563eb;
+}
+
+/* Button */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+/* Link */
+.link-text {
+    margin-top: 20px;
+}
+
+.link-text a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard-body {
+    margin: 0;
+}
+
+/* Layout */
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #0f172a;
+    color: white;
+    padding: 25px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+/* Logout */
+.logout-btn {
+    display: block;
+    padding: 12px;
+    background: #ef4444;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+}
+
+/* Main */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background: #f8fafc;
+}
+
+/* Users */
+.user-list {
+    margin-top: 20px;
+}
+
+/* User Card */
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 12px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.user-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Avatar */
+.avatar {
+    font-size: 20px;
+}
+
+/* Username */
+.username {
+    font-weight: 500;
+}
+
+/* ================= CHAT ================= */
+.chat-body {
+    margin: 0;
+}
+
+/* Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f172a;
+    color: white;
+    padding: 15px 20px;
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+}
+
+/* Chat Box */
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #eef2f7;
+}
+
+/* Message Bubble */
+.chat-message {
+    max-width: 60%;
+    margin: 12px;
+    padding: 12px;
+    border-radius: 16px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Sent */
+.sent {
+    margin-left: auto;
+    background: #2563eb;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Received */
+.received {
+    background: white;
+    border-bottom-left-radius: 4px;
+}
+
+/* Image */
+.chat-img {
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Status */
+.status {
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* Input Area */
+.chat-input {
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input form {
+    display: flex;
+    gap: 8px;
+}
+
+/* Inputs */
+.chat-input input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.chat-input input[type="text"] {
+    flex: 1;
+}
+
+/* Button */
+.chat-input button {
+    padding: 10px 15px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #1d4ed8;
+}
+
+/* Decrypt */
+.decrypt-form {
+    margin-top: 10px;
+}
+
+.decrypt-form input {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.decrypt-form button {
+    padding: 6px 10px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+/* Result */
+.result {
+    margin-top: 5px;
+    color: #059669;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* ================= MODAL ================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.modal img {
+    display: block;
+    margin: 50px auto;
+    max-width: 80%;
+}
+
+.modal span {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}

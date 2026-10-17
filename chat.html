@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Chat</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="chat-body">
+
+<div class="chat-container">
+
+    <!-- ================= HEADER ================= -->
+    <div class="chat-header">
+        <a href="/dashboard" class="back-btn">⬅</a>
+        <h3>🔐 Secure Chat</h3>
+    </div>
+
+    <!-- ================= CHAT BOX ================= -->
+    <div class="chat-box" id="chatBox">
+
+        {% for msg in messages %}
+
+            {% if msg.sender_id == current_user %}
+                <!-- ===== SENT MESSAGE ===== -->
+                <div class="chat-message sent">
+
+                    {% if msg.image_path %}
+                        <img src="/static/{{ msg.image_path }}" class="chat-img" onclick="openModal(this.src)">
+                    {% else %}
+                        <p>⚠ Image not found</p>
+                    {% endif %}
+
+                    <div class="status">✔ Sent</div>
+
+                </div>
+
+            {% else %}
+                <!-- ===== RECEIVED MESSAGE ===== -->
+                <div class="chat-message received">
+
+                    {% if msg.image_path %}
+                        <img src="/static/{{ msg.image_path }}" class="chat-img" onclick="openModal(this.src)">
+                    {% else %}
+                        <p>⚠ Image not found</p>
+                    {% endif %}
+
+                    <!-- DECRYPT FORM -->
+                    <form class="decrypt-form">
+                        <input type="hidden" name="image_path" value="{{ msg.image_path }}">
+
+                        <input type="text" name="key" placeholder="Enter AES Key" required>
+
+                        <button type="submit">Decrypt</button>
+                    </form>
+
+                    <!-- RESULT -->
+                    <div class="result"></div>
+
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+    <!-- ================= INPUT AREA ================= -->
+    <div class="chat-input">
+
+        <form action="/send" method="post" enctype="multipart/form-data">
+
+            <input type="file" name="image" accept="image/*" required>
+
+            <input type="text" name="message" placeholder="Type message..." required>
+
+            <input type="text" name="key" placeholder="Encryption Key" required>
+
+            <input type="hidden" name="receiver_id" value="{{ receiver_id }}">
+
+            <button type="submit">Send</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ================= IMAGE MODAL ================= -->
+<div id="imgModal" class="modal">
+    <span onclick="closeModal()">×</span>
+    <img id="modalImg">
+</div>
+
+<!-- ================= JS ================= -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<script>
+function openModal(src) {
+    document.getElementById("imgModal").style.display = "block";
+    document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
